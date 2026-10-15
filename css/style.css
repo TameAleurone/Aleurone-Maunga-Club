@@ -1,1 +1,4 @@
-/*This is an external stylesheet*/
+body { margin: 0; font-family: Arial, sans-serif; background: #f5f3ec; color: #172522; } 
+.site-header { background: #102f2b; color: white; padding: 1rem 3rem; display: flex; justify-content: space-between; align-items: center; } 
+nav { display: flex; gap: 1.5rem; } img { max-width: 160px; } .hero { min-height: 420px; padding: 4rem 3rem; background: linear-gradient(rgba(16,47,43,.7), rgba(16,47,43,.7)), url("../../Aleurone-Maunga-Club/pics/mountain_view_dark.jpg") center/cover; color: white; } 
+.hero-copy { max-width: 620px; } h1 { font-size: 4rem; line-height: 1.05; } .button { background: #e8b45a; color: #102f2b; text-decoration: none; padding: .8rem 1.2rem; display: inline-block; margin-top: 1rem; border-radius: 4px; font-weight: 700; }
