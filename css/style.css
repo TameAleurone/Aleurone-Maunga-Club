@@ -1,9 +1,144 @@
-body { margin: 0; font-family: Arial, sans-serif; background: #fffefa; color: #172522; } 
-.site-header { min-height: 86px; background: #102f2b; color: white; display: flex; justify-content: space-between; align-items: center; padding: 1rem 4rem; } 
-.brand img { width: 155px; } nav { display: flex; gap: 2rem; } nav a { color: white; text-decoration: none; } 
-.yay { min-height: 610px; display: flex; align-items: center; padding: 5rem 4rem; background: linear-gradient(90deg, rgba(7,28,25,.84), rgba(7,28,25,.55), rgba(7,28,25,.12)), url("../../Aleurone-Maunga-Club/pics/mountain_view_dark.jpg") center/cover; color: white; } 
-.chalet { background-image: linear-gradient(90deg, rgba(8,34,30,.88), rgba(8,34,30,.34)), url("../../Aleurone-Maunga-Club/pics/mountain_view_light.jpg"); } 
-.chalet-card { display: grid; grid-template-columns: 1fr 1fr; background: #f5f3ec; margin-bottom: 2rem; } 
-.chalet-card img { width: 100%; height: 100%; object-fit: cover; display: block; } 
-.chalet-details { padding: 2rem; }
-
+:root {
+  --pine: #102f2b;
+  --pine-mid: #214c43;
+  --pine-soft: #dfe9e4;
+  --gold: #e8b45a;
+  --cream: #f5f3ec;
+  --paper: #fffefa;
+  --ink: #172522;
+  --muted: #5d6b65;
+  --line: #dce2dc;
+  --max: 1160px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; color: var(--ink); background: var(--paper); font-family: Inter, "Segoe UI", Arial, sans-serif; line-height: 1.65; }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+.skip-link { position: absolute; top: -60px; left: 1rem; z-index: 20; background: white; padding: .7rem 1rem; }
+.skip-link:focus { top: 1rem; }
+.site-header { min-height: 86px; padding: 1rem max(5vw, calc((100vw - var(--max))/2)); display: flex; justify-content: space-between; align-items: center; gap: 2rem; background: var(--pine); color: white; }
+.brand { display: block; flex-shrink: 0; }
+.brand img { width: 155px; max-height: 58px; object-fit: contain; }
+nav { display: flex; align-items: center; gap: clamp(1rem, 3vw, 2.4rem); }
+nav a { color: #f5f7f3; text-decoration: none; font-size: .9rem; font-weight: 650; padding: .45rem 0; border-bottom: 2px solid transparent; }
+nav a:hover, nav a.active { color: var(--gold); border-bottom-color: var(--gold); }
+nav a.nav-cta { padding: .7rem 1rem; border: 1px solid #9eafa7; border-radius: 3px; }
+nav a.nav-cta:hover, nav a.nav-cta.active { border-color: var(--gold); }
+.yay { min-height: 610px; position: relative; display: flex; align-items: center; color: white; padding: 5rem max(7vw, calc((100vw - var(--max))/2)); background: linear-gradient(90deg, rgba(7,28,25,.84) 0%, rgba(7,28,25,.55) 52%, rgba(7,28,25,.12) 100%), url("../../Aleurone-Maunga-Club/pics/mountain_view_dark.jpg") center 52%/cover no-repeat; }
+.content { max-width: 700px; position: relative; z-index: 1; }
+.eyebrow { margin: 0 0 .85rem; color: #9b6a18; text-transform: uppercase; letter-spacing: .16em; font-size: .72rem; font-weight: 800; }
+.yay .eyebrow, .page .eyebrow, .join-banner .eyebrow { color: var(--gold); }
+h1, h2, h3, p { margin-top: 0; }
+h1, h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 500; line-height: 1.08; letter-spacing: -.025em; }
+.yay h1 { max-width: 680px; margin-bottom: 1.3rem; font-size: clamp(3.1rem, 7vw, 5.6rem); }
+.copy { max-width: 540px; color: #edf2ee; font-size: 1.12rem; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; margin-top: 2rem; }
+.button { display: inline-flex; justify-content: center; align-items: center; gap: .65rem; text-decoration: none; padding: .9rem 1.25rem; border-radius: 3px; font-weight: 750; font-size: .9rem; transition: transform .2s, background .2s; }
+.button:hover { transform: translateY(-2px); }
+.button-gold { color: var(--pine); background: var(--gold); }
+.button-gold:hover { background: #f1c979; }
+.button-light { color: var(--pine); background: var(--paper); }
+.button-light:hover { background: var(--gold); }
+.text-link { color: var(--pine-mid); font-weight: 750; text-decoration: none; border-bottom: 1px solid #8ca39a; padding-bottom: .2rem; }
+.text-link span { margin-left: .35rem; }
+.text-link:hover { color: #98671c; }
+.light-link { color: white; border-color: #a8b8b1; }
+.note { position: absolute; right: max(5vw, calc((100vw - var(--max))/2)); bottom: 1.4rem; color: white; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; }
+.section-wrap { max-width: var(--max); margin: auto; padding: 6rem 2rem; }
+.intro { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+.intro h2, .chalet-intro h2, .next-steps h2 { color: var(--pine); font-size: clamp(2.4rem, 4vw, 3.6rem); margin-bottom: 0; }
+.intro-copy { max-width: 540px; color: var(--muted); }
+.intro-copy p { margin-bottom: 1.2rem; }
+.intro-copy .text-link { display: inline-block; margin-top: .5rem; }
+.feature-band { display: grid; grid-template-columns: repeat(3, 1fr); background: var(--cream); padding: 3.2rem max(7vw, calc((100vw - var(--max))/2)); gap: 3rem; }
+.feature-number { color: #9b6a18; font-size: .75rem; letter-spacing: .15em; font-weight: 800; }
+.feature h3 { color: var(--pine); margin: .6rem 0 .3rem; font-size: 1.1rem; }
+.feature p { color: var(--muted); margin-bottom: 0; font-size: .95rem; }
+.join-banner { display: flex; justify-content: space-between; align-items: center; gap: 2rem; background: var(--pine); color: white; padding: 3.5rem max(7vw, calc((100vw - var(--max))/2)); }
+.join-banner h2 { font-size: clamp(2rem, 3.8vw, 3rem); margin-bottom: .6rem; }
+.join-banner p:not(.eyebrow) { margin-bottom: 0; color: #d4dfd9; }
+.join-banner .button { flex-shrink: 0; }
+.site-footer { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; align-items: center; padding: 2rem max(5vw, calc((100vw - var(--max))/2)); background: #0b2421; color: #e6ece8; font-size: .85rem; }
+.site-footer p { margin: 0; color: #b9c8c0; }
+.footer-brand { text-decoration: none; font-size: .85rem; letter-spacing: .15em; font-weight: 800; }
+.copyright { text-align: right; }
+.page { min-height: 350px; display: flex; align-items: center; padding: 4rem max(7vw, calc((100vw - var(--max))/2)); color: white; background-position: center; background-size: cover; }
+.chalet { background-image: linear-gradient(90deg, rgba(8,34,30,.88), rgba(8,34,30,.34)), url("../../Aleurone-Maunga-Club/pics/mountain_view_light.jpg"); }
+.membership { background-image: linear-gradient(90deg, rgba(8,34,30,.88), rgba(8,34,30,.38)), url("../../Aleurone-Maunga-Club/pics/kereru/cabin_exterior.jpg"); background-position: center 55%; }
+.page-inner { max-width: 760px; }
+.page h1 { font-size: clamp(2.8rem, 6vw, 4.8rem); margin-bottom: 1rem; }
+.page p:not(.eyebrow) { max-width: 590px; color: #e7eee9; font-size: 1.05rem; margin-bottom: 0; }
+.chalet-intro { padding-bottom: 3.5rem; }
+.chalet-intro h2 { font-size: 2.8rem; margin-bottom: 2rem; }
+.rules-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.rules-grid > div { border-top: 1px solid var(--line); padding-top: 1.2rem; }
+.rules-grid span { color: #9b6a18; font-size: .75rem; font-weight: 800; letter-spacing: .12em; }
+.rules-grid p { margin: .7rem 0 0; color: var(--muted); }
+.chalet-list { max-width: var(--max); margin: 0 auto 5rem; padding: 0 2rem; }
+.chalet-card { display: grid; grid-template-columns: .92fr 1.08fr; margin: 0 0 2rem; background: var(--cream); }
+.chalet-card.reverse { grid-template-columns: 1.08fr .92fr; }
+.chalet-card.reverse .chalet-photo { order: 2; }
+.chalet-photo { display: block; min-height: 430px; overflow: hidden; }
+.chalet-photo img { width: 100%; height: 100%; min-height: 430px; object-fit: cover; transition: transform .45s; }
+.chalet-photo:hover img { transform: scale(1.035); }
+.chalet-details { padding: clamp(1.5rem, 4vw, 3rem); }
+.chalet-details h2 { color: var(--pine); font-size: 3rem; margin-bottom: .2rem; }
+.chalet-lead { color: var(--pine-mid); font-weight: 750; font-size: 1.08rem; margin-bottom: .8rem; }
+.chalet-details > p:not(.eyebrow):not(.chalet-lead) { color: var(--muted); }
+.capacity { display: flex; gap: 2.5rem; padding: 1.2rem 0; border-top: 1px solid #d2dbd3; border-bottom: 1px solid #d2dbd3; margin: 1.2rem 0; }
+.capacity div { display: flex; flex-direction: column; }
+.capacity strong { font-family: Georgia, serif; color: var(--pine); font-size: 2rem; line-height: 1.1; }
+.capacity span { color: var(--muted); font-size: .75rem; }
+.mini-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: .55rem; }
+.mini-gallery a { display: block; height: 75px; overflow: hidden; background: #d9e0da; }
+.mini-gallery img { width: 100%; height: 100%; object-fit: cover; transition: opacity .2s; }
+.mini-gallery a:hover img { opacity: .75; }
+.membership-layout { max-width: var(--max); margin: auto; padding: 5rem 2rem; display: grid; grid-template-columns: 1.2fr .8fr; gap: 5rem; align-items: start; }
+.membership-copy h2 { font-size: 3.2rem; color: var(--pine); margin-bottom: 1rem; }
+.membership-copy > p:not(.eyebrow) { color: var(--muted); max-width: 600px; }
+.steps { list-style: none; margin: 2.2rem 0 0; padding: 0; }
+.steps li { display: flex; gap: 1.1rem; padding: 1.2rem 0; border-top: 1px solid var(--line); }
+.step-number { flex: 0 0 2.2rem; height: 2.2rem; display: grid; place-items: center; border: 1px solid #b9c8be; color: var(--pine); border-radius: 50%; font-weight: 800; }
+.steps h3 { margin: .1rem 0 .3rem; color: var(--pine); }
+.steps p { color: var(--muted); margin: 0; }
+.email-card { padding: 2.2rem; background: var(--pine); color: white; }
+.email-card h2 { font-family: Georgia, serif; font-size: 2.4rem; font-weight: 500; margin-bottom: 1rem; }
+.email-address { overflow-wrap: anywhere; font-weight: 700; }
+.email-address a { color: #f4c56e; }
+.email-button { width: 100%; margin: .8rem 0 1rem; }
+.small-note { font-size: .8rem; color: #d2ded7; margin-bottom: 0; }
+.next-steps { background: var(--cream); padding: 4rem max(7vw, calc((100vw - var(--max))/2)); }
+.next-steps h2 { margin-bottom: 2rem; }
+.next-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+.next-grid > div { border-top: 1px solid #d4ddd5; padding-top: 1.2rem; }
+.next-icon { color: #9b6a18; font-weight: 800; font-size: .75rem; letter-spacing: .12em; }
+.next-grid h3 { color: var(--pine); margin: .7rem 0 .4rem; }
+.next-grid p { color: var(--muted); margin-bottom: 0; max-width: 480px; }
+@media (max-width: 760px) {
+  .site-header { flex-direction: column; gap: .7rem; padding: 1rem 1.2rem; }
+  .brand img { width: 130px; }
+  nav { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  nav a { font-size: .82rem; }
+  .yay { min-height: 570px; padding: 4rem 1.4rem; background-position: 60% center; }
+  .yay h1 { font-size: clamp(2.8rem, 12vw, 4.3rem); }
+  .note { left: 1.4rem; right: 1.4rem; font-size: .65rem; }
+  .section-wrap { padding: 3.5rem 1.4rem; }
+  .intro, .membership-layout { grid-template-columns: 1fr; gap: 2rem; }
+  .feature-band { grid-template-columns: 1fr; gap: 1.8rem; padding: 2.5rem 1.4rem; }
+  .join-banner { align-items: flex-start; flex-direction: column; padding: 3rem 1.4rem; }
+  .site-footer { grid-template-columns: 1fr; padding: 2rem 1.4rem; text-align: center; }
+  .copyright { text-align: center; }
+  .page { min-height: 320px; padding: 3.5rem 1.4rem; }
+  .rules-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .chalet-list { padding: 0 1rem; margin-bottom: 3rem; }
+  .chalet-card, .chalet-card.reverse { grid-template-columns: 1fr; }
+  .chalet-card.reverse .chalet-photo { order: 0; }
+  .chalet-photo, .chalet-photo img { min-height: 250px; max-height: 330px; }
+  .chalet-details { padding: 1.5rem; }
+  .membership-layout { padding: 3.5rem 1.4rem; }
+  .membership-copy h2 { font-size: 2.7rem; }
+  .next-steps { padding: 3rem 1.4rem; }
+  .next-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
