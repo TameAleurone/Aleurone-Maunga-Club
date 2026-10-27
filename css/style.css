@@ -28,7 +28,7 @@ nav a.nav-cta:hover, nav a.nav-cta.active { border-color: var(--gold); }
 .yay { min-height: 610px; position: relative; display: flex; align-items: center; color: white; padding: 5rem max(7vw, calc((100vw - var(--max))/2)); background: linear-gradient(90deg, rgba(7,28,25,.84) 0%, rgba(7,28,25,.55) 52%, rgba(7,28,25,.12) 100%), url("../../Aleurone-Maunga-Club/pics/mountain_view_dark.jpg") center 52%/cover no-repeat; }
 .content { max-width: 700px; position: relative; z-index: 1; }
 .eyebrow { margin: 0 0 .85rem; color: #9b6a18; text-transform: uppercase; letter-spacing: .16em; font-size: .72rem; font-weight: 800; }
-.yay .eyebrow, .page .eyebrow, .join-banner .eyebrow { color: var(--gold); }
+.yay .eyebrow, .page-hero .eyebrow, .join-banner .eyebrow { color: var(--gold); }
 h1, h2, h3, p { margin-top: 0; }
 h1, h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 500; line-height: 1.08; letter-spacing: -.025em; }
 .yay h1 { max-width: 680px; margin-bottom: 1.3rem; font-size: clamp(3.1rem, 7vw, 5.6rem); }
@@ -63,12 +63,12 @@ h1, h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 500; line-
 .site-footer p { margin: 0; color: #b9c8c0; }
 .footer-brand { text-decoration: none; font-size: .85rem; letter-spacing: .15em; font-weight: 800; }
 .copyright { text-align: right; }
-.page { min-height: 350px; display: flex; align-items: center; padding: 4rem max(7vw, calc((100vw - var(--max))/2)); color: white; background-position: center; background-size: cover; }
-.chalet { background-image: linear-gradient(90deg, rgba(8,34,30,.88), rgba(8,34,30,.34)), url("../../Aleurone-Maunga-Club/pics/mountain_view_light.jpg"); }
-.membership { background-image: linear-gradient(90deg, rgba(8,34,30,.88), rgba(8,34,30,.38)), url("../../Aleurone-Maunga-Club/pics/kereru/cabin_exterior.jpg"); background-position: center 55%; }
-.page-inner { max-width: 760px; }
-.page h1 { font-size: clamp(2.8rem, 6vw, 4.8rem); margin-bottom: 1rem; }
-.page p:not(.eyebrow) { max-width: 590px; color: #e7eee9; font-size: 1.05rem; margin-bottom: 0; }
+.page-hero { min-height: 350px; display: flex; align-items: center; padding: 4rem max(7vw, calc((100vw - var(--max))/2)); color: white; background-position: center; background-size: cover; }
+.chalet-hero { background-image: linear-gradient(90deg, rgba(8,34,30,.88), rgba(8,34,30,.34)), url("../../Aleurone-Maunga-Club/pics/mountain_view_light.jpg"); }
+.membership-hero { background-image: linear-gradient(90deg, rgba(8,34,30,.88), rgba(8,34,30,.38)), url("../../Aleurone-Maunga-Club/pics/kereru/cabin_exterior.jpg"); background-position: center 55%; }
+.page-hero-inner { max-width: 760px; }
+.page-hero h1 { font-size: clamp(2.8rem, 6vw, 4.8rem); margin-bottom: 1rem; }
+.page-hero p:not(.eyebrow) { max-width: 590px; color: #e7eee9; font-size: 1.05rem; margin-bottom: 0; }
 .chalet-intro { padding-bottom: 3.5rem; }
 .chalet-intro h2 { font-size: 2.8rem; margin-bottom: 2rem; }
 .rules-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
@@ -129,7 +129,7 @@ h1, h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 500; line-
   .join-banner { align-items: flex-start; flex-direction: column; padding: 3rem 1.4rem; }
   .site-footer { grid-template-columns: 1fr; padding: 2rem 1.4rem; text-align: center; }
   .copyright { text-align: center; }
-  .page { min-height: 320px; padding: 3.5rem 1.4rem; }
+  .page-hero { min-height: 320px; padding: 3.5rem 1.4rem; }
   .rules-grid { grid-template-columns: 1fr; gap: 1rem; }
   .chalet-list { padding: 0 1rem; margin-bottom: 3rem; }
   .chalet-card, .chalet-card.reverse { grid-template-columns: 1fr; }
