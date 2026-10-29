@@ -10,13 +10,14 @@
   --line: #dce2dc;
   --max: 1160px;
 }
-* { box-sizing: border-box; }
+* { box-sizing: border-box; } 
 html { scroll-behavior: smooth; }
 body { margin: 0; color: var(--ink); background: var(--paper); font-family: Inter, "Segoe UI", Arial, sans-serif; line-height: 1.65; }
 img { display: block; max-width: 100%; }
 a { color: inherit; }
 .skip-link { position: absolute; top: -60px; left: 1rem; z-index: 20; background: white; padding: .7rem 1rem; }
 .skip-link:focus { top: 1rem; }
+a:focus-visible, button:focus-visible { outline: 3px solid #e8b45a; outline-offset: 3px; }
 .site-header { min-height: 86px; padding: 1rem max(5vw, calc((100vw - var(--max))/2)); display: flex; justify-content: space-between; align-items: center; gap: 2rem; background: var(--pine); color: white; }
 .brand { display: block; flex-shrink: 0; }
 .brand img { width: 155px; max-height: 58px; object-fit: contain; }
@@ -104,9 +105,19 @@ h1, h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 500; line-
 .steps p { color: var(--muted); margin: 0; }
 .email-card { padding: 2.2rem; background: var(--pine); color: white; }
 .email-card h2 { font-family: Georgia, serif; font-size: 2.4rem; font-weight: 500; margin-bottom: 1rem; }
-.email-address { overflow-wrap: anywhere; font-weight: 700; }
-.email-address a { color: #f4c56e; }
-.email-button { width: 100%; margin: .8rem 0 1rem; }
+.membership-form { display: grid; gap: 1rem; }
+.required-docs { padding-left: 1.25rem; margin: 0 0 1rem; color: #edf2ee; }
+.required-docs li { padding: .18rem 0; }
+.email-address { overflow-wrap: anywhere; font-weight: 750; margin: 1.2rem 0; }
+.email-address a { color: #f4c56e; text-underline-offset: .2em; }
+.email-address a:hover { color: #fff; }
+.form-field { display: grid; gap: .35rem; }
+.form-field label { font-size: .8rem; font-weight: 700; }
+.form-field input, .form-field textarea { width: 100%; padding: .75rem; border: 1px solid #b9c8be; border-radius: 2px; color: var(--pine); font: inherit; }
+.form-field textarea { resize: vertical; }
+.form-field input:focus, .form-field textarea:focus { outline: 2px solid #f4c56e; outline-offset: 2px; }
+
+.email-button { width: 100%; margin: .8rem 0 1rem; text-align: center; }
 .small-note { font-size: .8rem; color: #d2ded7; margin-bottom: 0; }
 .next-steps { background: var(--cream); padding: 4rem max(7vw, calc((100vw - var(--max))/2)); }
 .next-steps h2 { margin-bottom: 2rem; }
@@ -142,3 +153,36 @@ h1, h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 500; line-
   .next-grid { grid-template-columns: 1fr; gap: 1.5rem; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+/* jQuery chalet information feature */
+.quick-info {
+  max-width: 1100px;
+  margin: 0 auto 2rem;
+  padding: 0 2rem;
+}
+
+#toggle-chalet-tips {
+  background: #102f2b;
+  color: white;
+  border: 0;
+  border-radius: 4px;
+  padding: 0.8rem 1.2rem;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#toggle-chalet-tips:hover {
+  background: #28554c;
+}
+
+#toggle-chalet-tips:focus-visible {
+  outline: 3px solid #e8b45a;
+  outline-offset: 3px;
+}
+
+#chalet-tips {
+  background: #f5f3ec;
+  border-left: 4px solid #e8b45a;
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+}
